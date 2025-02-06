@@ -46,4 +46,12 @@ go.work
 
 # Temporary files
 tmp/
-temp/ 
+temp/
+
+# Git backup files
+*.patch
+stash-backup.*
+
+# Root level npm files (since we use task-frontend for all frontend code)
+/package.json
+/package-lock.json 
