@@ -15,8 +15,7 @@ export default function TaskManager() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [editingTask, setEditingTask] = useState<Task | null>(null)
-  // const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
-  const API_URL = 'http://localhost:8080';
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
   
   const fetchTasks = async () => {
     try {

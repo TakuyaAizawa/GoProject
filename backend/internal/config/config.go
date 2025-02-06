@@ -3,6 +3,7 @@ package config
 import (
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/joho/godotenv"
 )
@@ -15,8 +16,10 @@ type Config struct {
 
 // Load は環境変数から設定を読み込む
 func Load() *Config {
-	if err := godotenv.Load(); err != nil {
-		log.Printf("Warning: .env file not found")
+	// プロジェクトルートの.envファイルを探す
+	envPath := filepath.Join(".", ".env")
+	if err := godotenv.Load(envPath); err != nil {
+		log.Printf("Warning: .env file not found at %s", envPath)
 	}
 
 	config := &Config{
