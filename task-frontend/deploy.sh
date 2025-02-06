@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# .env.local から環境変数を読み込む
+export $(cat .env.local | xargs)
+
 # プロジェクトIDを設定
-PROJECT_ID="striking-decker-449414-a6"
+PROJECT_ID="${GCP_PROJECT_ID}"
 # サービス名
 SERVICE_NAME="nextjs-frontend"
 # リージョン
@@ -9,7 +12,7 @@ REGION="asia-northeast1"
 # Artifact Registryのリポジトリ名
 REPO_NAME="nextjs-apps"
 # バックエンドのURL（Cloud RunのURL）
-BACKEND_URL="https://go-service-varmds4vgq-an.a.run.app"  # バックエンドのURLに置き換えてください
+BACKEND_URL="${NEXT_PUBLIC_API_URL}"  # 環境変数から読み取り
 
 # リポジトリが存在しない場合のみ作成
 if ! gcloud artifacts repositories describe $REPO_NAME --location=$REGION &>/dev/null; then
