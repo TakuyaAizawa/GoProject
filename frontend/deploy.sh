@@ -6,7 +6,7 @@ export $(cat .env.local | xargs)
 # プロジェクトIDを設定
 PROJECT_ID="${GCP_PROJECT_ID}"
 # サービス名
-SERVICE_NAME="nextjs-frontend"
+SERVICE_NAME="frontend"
 # リージョン
 REGION="asia-northeast1"
 # Artifact Registryのリポジトリ名
